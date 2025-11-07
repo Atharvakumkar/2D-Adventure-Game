@@ -2,6 +2,7 @@ package Main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLOutput;
 
 public class gamePanel extends JPanel implements Runnable {
 
@@ -31,7 +32,27 @@ public class gamePanel extends JPanel implements Runnable {
     }
     @Override
     public void run() {
+        while(gameThread != null) {
+            //Update
+            update();
 
+            //Draw
+            repaint();
+        }
+    }
+
+    public void update() {
+
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.white);
+        g2.fillRect(100,100,tileSize,tileSize);
+        g2.dispose();
     }
 
 }
